@@ -1,0 +1,35 @@
+<app-navigation-menu></app-navigation-menu>
+
+<div class="card">
+  <div class="card-header text-center">
+    <h1>{{pageTitle}}</h1>
+  </div>
+
+  <div class="card-body">
+    <div class="container-fluid">
+      <div class="text-center">
+
+        <div class="row">
+
+          <div class="align-self-center col-sm-4">
+            <br>
+            <a class="btn btn-primary" [routerLink]="['/browseCapstoneProjects']">Browse Capstone Projects</a>
+          </div>
+
+          <div class="align-self-center col-sm-4">
+            <br>
+            <a class="btn btn-primary" [routerLink]="['/browseContractProjects']">Browse Contract Projects</a>
+          </div>
+
+          <div class="align-self-center col-sm-4">
+            <br>
+            <a class="btn btn-primary" [routerLink]="['/browseResearchProjects']">Browse Research Projects</a>
+          </div>
+
+        </div>
+
+        <div class="text-center">
+          <small><i>Developed by {{this.author}}</i></small>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/css/font-awesome.min.css'; 
+mat-form-field.mat-form-field {
+    font-size: 16px;
+    /* color: blue;
+    background-color: burlywood;
+    border: solid 1px #c0c0ff; */
+  }
+
+  .full-width-field {
+    width: 65%;
+ }
+
+ .test{
+    font-size: 17px;
+ }
+
+ table{
+    width:65%;
+ }
+ td {
+    padding: 8px;
+    text-align: left;
+  }
+
+  p {
+   font-size: 17px;
+   line-height: 30px;
+  }
+  h1, h2 {
+   color: #0066cc
+   ;
+}
+h3 {
+   color: #6699ff;
+}
+
+.card-body {
+    background-color: aliceblue
+}
+
+.card-header {
+   background: linear-gradient(to right, #3366cc 0%, #3399ff  100%);
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   color: whitesmoke
+}
+
+.card-header h1 {
+   font-family: Calibri, Geneva, Tahoma, sans-serif;
+   color: whitesmoke
+}
+
+.three-col-div image {
+   max-width:100%;max-height:200px;padding-bottom:20px;padding-top:20px
+}
+
+.accordion .card-header:after {
+   font-family: 'FontAwesome';  
+   content: "\f068";
+   float: right; 
+}
+.accordion .card-header.collapsed:after {
+   /* symbol for "collapsed" panels */
+   content: "\f067"; 
+}
+

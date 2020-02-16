@@ -1,0 +1,282 @@
+<app-navigation-menu></app-navigation-menu>
+<div class="card">
+  <div class="card-header text-center">
+    <h1>New Capstone Project Request Form</h1>
+  </div>
+</div>
+<div class="card-body">
+  <div class="container-fluid">
+    <div style="text-align:center">
+
+      <!-- SECTION 1 -->
+
+      <h2>Section 1: Company and Mentor Information</h2>
+      <form [formGroup]="capstoneForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field>
+          <input matInput placeholder="Contact Name" id="contactname" formControlName="contactname">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Contact Job Title" id="contactjobtitle" formControlName="contactjobtitle">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Contact Email" id="contactemail" formControlName="contactemail">
+        </mat-form-field>
+        &nbsp;&nbsp;
+        <mat-form-field>
+          <input matInput placeholder="Contact Phone" id="contactphone" formControlName="contactphone">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Organization/ Company Name" id="orgcomname" formControlName="orgcomname">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Organization Address" id="orgaddress" formControlName="orgaddress">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Organization Website" id="orgwebsite" formControlName="orgwebsite">
+        </mat-form-field>
+        <!-- END OF SECTION 1 -->
+
+        <!-- SECTION 2 -->
+
+        <h2>Section 2: Project for Which Students Will Participate</h2>
+        <br>
+
+        <mat-form-field class="full-width-field" appearance="outline">
+          <mat-label>Project Title: </mat-label>
+          <textarea matInput placeholder="Project Title" id="projecttitle" formControlName="projecttitle"> </textarea>
+        </mat-form-field> <br>
+
+        <mat-form-field class="full-width-field" appearance="outline">
+          <mat-label>Description of Project: </mat-label>
+          <textarea matInput
+            placeholder="Brief description of the project (includingbackground, problem statement, and objectives)"
+            id="descrproject" formControlName="descrproject"> </textarea>
+        </mat-form-field> <br>
+
+        <mat-form-field class="full-width-field" appearance="outline">
+          <mat-label>Student Duties: </mat-label>
+          <textarea matInput
+            placeholder="Tasks/deliverables and the approximateamount of time the students will spend on each as a percentage of their overall time"
+            id="studduties" formControlName="studduties"> </textarea>
+        </mat-form-field> <br>
+
+        <mat-form-field class="full-width-field" appearance="outline">
+          <mat-label>Milestone1: </mat-label>
+          <textarea matInput placeholder="Deliverables for Milestone1" id="milestone1"
+            formControlName="milestone1"> </textarea>
+        </mat-form-field> <br>
+
+        <mat-form-field class="full-width-field" appearance="outline">
+          <mat-label>Milestone2: </mat-label>
+          <textarea matInput placeholder="Deliverables for Milestone2" id="milestone2"
+            formControlName="milestone2"> </textarea>
+        </mat-form-field> <br>
+
+        <mat-form-field class="full-width-field" appearance="outline">
+          <mat-label>Milestone3: </mat-label>
+          <textarea matInput placeholder="Deliverables for Milestone3" id="milestone3"
+            formControlName="milestone3"> </textarea>
+        </mat-form-field> <br>
+
+        <mat-form-field class="full-width-field" appearance="outline">
+          <mat-label>Benefit of Project to Students: </mat-label>
+          <textarea matInput placeholder="How the project benefits the student’s educational and professional growth?"
+            id="projbenefittostud" formControlName="projbenefittostud"> </textarea>
+        </mat-form-field> <br>
+
+        <mat-form-field class="full-width-field" appearance="outline">
+          <mat-label>Benefit of Project to Sponsor: </mat-label>
+          <textarea matInput placeholder="How the project brings value to the sponsor/company?"
+            id="projbenefittosponsor" formControlName="projbenefittosponsor"> </textarea>
+        </mat-form-field> <br>
+
+        <mat-form-field class="full-width-field" appearance="outline">
+          <mat-label>What will company provide to students: </mat-label>
+          <textarea matInput placeholder="Such as training, data, equipment, traveling, etc." id="whatcmpprovide"
+            formControlName="whatcmpprovide"> </textarea>
+        </mat-form-field> <br>
+
+        <mat-label>Skills Required by Students: </mat-label>
+        <span class="fa fa-plus-circle" style="font-size:25px;color:rgb(39, 71, 179)" (click)="addSkills()"></span><br>
+        <div *ngFor="let skillControl of capstoneForm.get('skillsRequired').controls | slice:0:10; let i = index;">
+          <mat-form-field>
+            <input matInput placeholder="Add Skills" [formControlName]="'Skill'+ i">
+          </mat-form-field>
+          &nbsp;&nbsp;<span class="fa fa-minus-circle" style="font-size:20px;color:red"
+            (click)="deleteSkills(i)"></span>
+        </div>
+        <br>
+
+        <!-- END OF SECTION 2 -->
+
+        <!-- SECTION 3 -->
+        <h2>Section 3: Project Requirements</h2><br>
+        <table align="center">
+          <tr>
+            <td>
+              <mat-label class="test">Will this project require an NDA or MOU?</mat-label>
+            </td>
+            <td>
+              <mat-radio-group formControlName="NDAorMOU">
+                <mat-radio-button value="Yes">Yes</mat-radio-button>&nbsp;&nbsp;
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-label class="test">Does the company wish to retain IP?</mat-label>
+            </td>
+            <td>
+              <mat-radio-group formControlName="RetainIP">
+                <mat-radio-button value="Yes">Yes</mat-radio-button>&nbsp;&nbsp;
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-label class="test">Will this project require students to work on site?</mat-label>
+            </td>
+            <td>
+              <mat-radio-group formControlName="WorkOnsite">
+                <mat-radio-button value="Yes">Yes</mat-radio-button>&nbsp;&nbsp;
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-label class="test">Will students be required to present at the sponsor’s site?</mat-label>
+            </td>
+            <td>
+              <mat-radio-group formControlName="PresentationOnsite">
+                <mat-radio-button value="Yes">Yes</mat-radio-button>&nbsp;&nbsp;
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </td>
+          </tr>
+
+          <tr>
+
+            <td>
+              <mat-label class="test">Would you like to make an on campus presentation the first week of classes?
+              </mat-label>
+            </td>
+            <td>
+              <mat-radio-group formControlName="FirstWeekPresentation">
+                <mat-radio-button value="Yes">Yes</mat-radio-button>&nbsp;&nbsp;
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-label class="test">If you are unavailable for an on campus presentation,would you like to provide a
+                video
+                presentation?
+              </mat-label>
+            </td>
+            <td>
+              <mat-radio-group formControlName="VideoPresentation">
+                <mat-radio-button value="Yes">Yes</mat-radio-button>&nbsp;&nbsp;
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-label class="test">How many student teams are you interested in sponsoring?</mat-label>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>Number of teams</mat-label>
+                <mat-select formControlName="TeamSponsor">
+                  <mat-option value="1">1</mat-option>
+                  <mat-option value="2">2</mat-option>
+                  <mat-option value="3">3</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-label class="test">Please indicate your availability to the students (Monday-Friday):</mat-label>
+            </td>
+          </tr>
+          <tr>
+            <table align="right" style="width: 100%;">
+              <th>Time</th>
+              <th>Virtual</th>
+              <th>In-Person</th>
+              <tr>
+                <td>6 AM- 9 AM</td>
+                <td>
+                  <mat-checkbox value="sixToNineVirtual" formControlName="sixToNineVirtual"></mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox value="sixToNineInPerson" formControlName="sixToNineInPerson"></mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>9 AM- 12 PM</td>
+                <td>
+                  <mat-checkbox value="nineToTwelveVirtual" formControlName="nineToTwelveVirtual"></mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox value="nineToTwelveInPerson" formControlName="nineToTwelveInPerson"></mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>12 PM- 3 PM</td>
+                <td>
+                  <mat-checkbox value="twelveToThreeVirtual" formControlName="twelveToThreeVirtual"></mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox value="twelveToThreeInPerson" formControlName="twelveToThreeInPerson"></mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>3 PM- 5 PM</td>
+                <td>
+                  <mat-checkbox value="threeToFiveVirtual" formControlName="threeToFiveVirtual"></mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox value="threeToFiveInPerson" formControlName="threeToFiveInPerson"></mat-checkbox>
+                </td>
+              </tr>
+            </table>
+          </tr>
+          <tr>
+            <td>
+              <mat-label class="test">Additional Availibity:</mat-label>
+            </td>
+          </tr>
+        </table>
+        <mat-form-field class="full-width-field" appearance="outline">
+          <textarea matInput
+            placeholder="If you have additional availability (after 5PM or weekends) or partial availability during the times listed above please include that here"
+            id="addavailability" formControlName="addavailability">
+    </textarea>
+        </mat-form-field>
+
+        <!-- END OF SECTION 3 -->
+        <p>
+          <button mat-raised-button type="submit" class="btn btn-primary">Submit</button>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
